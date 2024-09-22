@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+/**
+ * @author HP
+ *
+ */
+module learning {
+	requires rt;
+	requires java.sql;
+}

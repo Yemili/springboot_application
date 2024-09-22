@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+</head>
+<body>
+    <h1>Student Management System</h1>
+
+    <form id="studentForm">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="gender" placeholder="Gender" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="mobilenumber" placeholder="Mobile Number" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="number" name="age" placeholder="Age" required>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <h2>Students List</h2>
+    <ul id="studentsList">
+        <!-- Students will be appended here using JavaScript -->
+        <th:block th:each="student : ${students}">
+            <li th:text="${student.name}"></li>
+        </th:block>
+    </ul>
+
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            fetch('/students', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            }).then(response => {
+                if (response.ok) {
+                    location.reload(); // Reload to see the updated list
+                }
+            });
+        });
+    </script>
+</body>
+</html>

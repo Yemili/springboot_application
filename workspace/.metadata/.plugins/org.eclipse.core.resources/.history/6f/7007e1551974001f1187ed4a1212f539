@@ -1,0 +1,12 @@
+package StudentService;
+
+import StudentDAO.Student;
+
+public interface StudentService {
+	
+	 public Student studentregistration();
+	 public void insertPerson(Student person) ;
+	// public void getstudentdetailsbydatabase();
+
+
+}

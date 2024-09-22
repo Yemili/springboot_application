@@ -1,0 +1,80 @@
+package learning.StudentController;
+
+public class Controller 
+{
+	import StudentService.StudentServiceImpl;
+	import StudentService.StudentService;
+	import java.sql.Connection;
+	import java.sql.DriverManager;
+	import java.sql.PreparedStatement;
+	import java.sql.SQLException;
+	import java.sql.Statement;
+	import java.util.*;
+	import StudentDAO.Databaseconnections;
+	import StudentDAO.Student;
+	public class Controller
+	{
+		public static boolean selectoptions(String str)
+		{
+			Scanner sc=new Scanner(System.in);
+			while(true)
+			{
+				System.out.println(str+"yes/no");
+				String s1=sc.next();
+				if(s1.equalsIgnoreCase("yes"))
+				{
+					return true;
+				}
+				else return false;
+			}
+		
+		}
+	public static void main(String[] args) 
+	{
+		StudentServiceImpl ssimp=new StudentServiceImpl();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("welcome");
+		System.out.println();
+		boolean option=Controller.selectoptions("would like to continue:");
+		if(option)
+		{
+			System.out.println("1.Student Registration"+" "+"2.Diplay student Details"+" "+"3.Delete a student record"+" "+"4.UpdateStudentMarks");
+			
+		}
+		
+		int s=sc.nextInt();
+			if(s == 1)
+			{	
+				System.out.println("Welcome to the Registration");
+				ssimp.studentregistration();
+				System.out.println("Registration Completed");
+			}
+			else if(s==2)
+			{
+				System.out.println("which student details would like to display:");
+				int id=sc.nextInt();
+				ssimp.getstudentdetailsindatabase(id);
+			
+
+			}
+			else if(s==3)
+			{
+				System.out.println("which studenet record would like to delete:");
+				int id=sc.nextInt();
+				ssimp.deletedetails(id);
+			}
+			else if(s==4)
+			{
+				System.out.println("which student marka to added:");
+				int id=sc.nextInt();
+				System.out.println("which exam marks to be added for id:"+id);
+				System.out.println("unti1 marks"+"  "+"unti2 marks"+"  "+"Quartly marks"+"  "+"Halfearly marks"+"  "+"Annual marks");
+				ssimp.marksupdation(id);
+			}
+			else if(option) { System.out.println("Thanks for selecting");}
+		
+		
+	}
+
+
+}
