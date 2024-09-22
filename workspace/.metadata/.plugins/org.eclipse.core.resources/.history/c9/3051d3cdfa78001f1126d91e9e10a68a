@@ -1,0 +1,5 @@
+package com.yemili.org.student.repository;
+
+public interface ExamtypeRepository {
+
+}

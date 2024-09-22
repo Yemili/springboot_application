@@ -1,0 +1,73 @@
+package com.yemili.org.student.service;
+import org.springframework.beans.factory.annotation.Autowired;
+import java.util.*;
+import org.springframework.stereotype.Service;
+import com.yemili.org.student.model.Student;
+import com.yemili.org.student.model.Studentaccedamicdetails;
+import com.yemili.org.student.repository.ExamtypeRepository;
+import com.yemili.org.student.repository.StudentRepository;
+import com.yemili.org.student.repository.StudentaccedamicdetailsRepository;
+
+import java.lang.String;
+@Service
+public class StudentService {
+	
+	public List <Student> studentlist=new ArrayList<>();
+	
+	public List <Studentaccedamicdetails> accedamiclist=new ArrayList<>();
+	
+	//public List <Examtype> examtypelist=new ArrayList<>();
+	@Autowired
+	private StudentRepository studentRepository;
+	
+	@Autowired
+	private StudentaccedamicdetailsRepository studentaccedamicRepository;
+	
+	@Autowired
+	private ExamtypeRepository examtypeRepository;
+
+	//private Integer nextId = 1;
+	
+	//get all students
+	public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
+	
+	//get student by id
+	 public Optional<Student> getById(Long id) {
+	        return studentRepository.findById(id);
+	 }
+	 
+	 //add student
+	public Student addStudent(Student student) {
+		return studentRepository.save(student);
+		
+    }
+	
+	//delete student by id
+	public void deleteStudentById(Long id) {
+        studentRepository.deleteById(id);
+    }
+	
+	//update student
+	public Optional<Student> updateStudentName(Long id, String name) {
+        Optional<Student> optionalStudent = studentRepository.findById(id);
+        if (optionalStudent.isPresent()) {
+            Student student = optionalStudent.get();
+            student.setName(name); // Update the name
+            return Optional.of(studentRepository.save(student));
+        }
+        return Optional.empty();
+        
+        
+        List<Studentaccedamicdetails> getAccedamicdetails() {
+            return studentaccedamicRepository.findAll();
+        }
+            
+	}		            
+}
+        
+
+
+
+	

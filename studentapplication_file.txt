@@ -1,0 +1,25 @@
+student_details
+	id
+	name
+	gender
+	email
+	mobile
+	password
+	
+student_accdemicdetails
+	id
+	exam_id
+	student_id
+	tamil
+	english
+	maths
+	science
+	social
+	total
+	average
+
+exam_type
+	id
+	exam_name
+	date
+	
