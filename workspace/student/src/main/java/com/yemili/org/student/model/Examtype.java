@@ -1,15 +1,11 @@
 package com.yemili.org.student.model;
 
-import java.util.Collection;
-import java.util.Set;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,44 +15,53 @@ public class Examtype {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idexam_type")
-	private int idexam_type;
+	@Column(name = "id")
+	private int id;
 	
-	@Column(name = "name")
-	private String name;
+	
+	@Column(name = "exam_name")
+	private String exam_name;
 	
 	@Column(name = "date")
 	private String date;
 	
-	@OneToMany(mappedBy = "examType", cascade = CascadeType.ALL)
-    private Collection<Studentaccedamicdetails> academicDetails;
+	/*
+	 * @OneToMany(mappedBy = "examType", cascade = CascadeType.ALL) private
+	 * List<Studentaccedamicdetails> academicDetails;
+	 */
 
 	
 	public Examtype() {
 		
 	}
 	
-	public Examtype(int idexam_type,String name,String date)
+	public Examtype(int id,String exam_name,String date)
 	{
 		this.date=date;
-		this.idexam_type=idexam_type;
-		this.name=name;
+		this.id=id;
+		this.exam_name=exam_name;
 	}
 	
-	public int getIdexam_type() {
-		return idexam_type;
+	/*
+	 * public int getIdexam_type() { return id; }
+	 * 
+	 * public void setIdexam_type(int idexam_type) { this.id = idexam_type; }
+	 */
+
+	public int getId() {
+		return id;
 	}
 
-	public void setIdexam_type(int idexam_type) {
-		this.idexam_type = idexam_type;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getExam_name() {
+		return exam_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setExam_name(String exam_name) {
+		this.exam_name = exam_name;
 	}
 
 	public String getDate() {

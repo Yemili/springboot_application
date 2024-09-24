@@ -16,7 +16,6 @@
     <fullyQualifiedTypeName name="com.yemili.org.student.entity.Student"/>
     <fullyQualifiedTypeName name="com.yemili.org.student.repository.StudentRepository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="java.lang.foreign.Linker.Option"/>
@@ -37,12 +36,14 @@
     <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.yemili.org.student.repository.StudentaccedamicdetailsRepository"/>
     <fullyQualifiedTypeName name="com.yemili.org.student.repository.ExamtypeRepository"/>
-    <fullyQualifiedTypeName name="com.yemili.org.student.model.Student"/>
-    <fullyQualifiedTypeName name="com.yemili.org.student.model.Studentaccedamicdetails"/>
-    <fullyQualifiedTypeName name="com.yemili.org.student.model.Examtype"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.yemili.org.student.service.StudentService"/>
+    <fullyQualifiedTypeName name="com.yemili.org.student.model.Student"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.yemili.org.student.model.Examtype"/>
+    <fullyQualifiedTypeName name="com.yemili.org.student.model.Studentaccedamicdetails"/>
 </qualifiedTypeNameHistroy>

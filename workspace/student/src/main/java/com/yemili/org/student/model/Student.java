@@ -1,9 +1,7 @@
 package com.yemili.org.student.model;
 
 
-
-import java.util.Collection;
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -38,8 +36,10 @@ public class Student {
 	@Column(name = "age")
 	private int age;
 
-	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private Collection<Studentaccedamicdetails> academicDetails;
+	/*
+	 * @OneToMany(mappedBy = "student", cascade = CascadeType.ALL) private
+	 * List<Studentaccedamicdetails> academicDetails;
+	 */
 	public Student() {
 	}
 

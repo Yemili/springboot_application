@@ -20,26 +20,27 @@ public class Studentaccedamicdetails {
 	  @Column(name = "id")
 	  private int id;
 	  
-	  @Column(name = "student_id")
+	  @Column(name="student_id")
 	  private int student_id;
 	  
-	  @Column(name = "exam_id")
+	@Column(name = "exam_id")
 	  private int exam_id; 
 	  
-	  @Column(name = "tamilmarks")
-	  private int tamilmarks;
 	  
-	  @Column(name = "englishmarks")
-	  private int englishmarks;
+	@Column(name = "tamil_marks")
+	  private int tamil_marks;
 	  
-	  @Column(name = "mathsmarks")
-	  private int mathsmarks; 
+	 	@Column(name = "english_marks")
+	  private int english_marks;
 	  
-	  @Column(name = "sciencemarks")
-	  private int sciencemarks;
+	  @Column(name = "maths_marks")
+	  private int maths_marks; 
 	  
-	  @Column(name = "socialmarks")
-	  private int socialmarks;
+	  @Column(name = "science_marks")
+	  private int science_marks;
+	  
+	  @Column(name = "social_marks")
+	  private int social_marks;
 	  
 	  @Column(name = "total")
 	  private int total;
@@ -47,33 +48,68 @@ public class Studentaccedamicdetails {
 	  @Column(name = "average")
 	  private double average;
 	  
-	  @ManyToOne
-	    @JoinColumn(name = "student_id", nullable = false)
-	    private Student student;
-
-	    @ManyToOne
-	    @JoinColumn(name = "exam_id", nullable = false)
-	    private Examtype examType;
+		/*
+		 * @ManyToOne
+		 * 
+		 * @JoinColumn(name = "student_id", nullable = false) private Student
+		 * student_id;
+		 */
+		
+		/*
+		 * @ManyToOne
+		 * 
+		 * @JoinColumn(name = "idexam_type", nullable = false) private Examtype
+		 * examType;
+		 */
+		 
 	    
-	  public Studentaccedamicdetails() {
+		/*
+		 * public Student getStudent_id() { return student_id; }
+		 * 
+		 * 
+		 * public void setStudent_id(Student student_id) { this.student_id = student_id;
+		 * }
+		 */
+	  
+
+
+	public Studentaccedamicdetails() {
 		  
 	  }
 	  
 	  
-	  public Studentaccedamicdetails(int id,int student_id,int exam_id,int tamilmarks,int englishmarks,int mathsmarks,int sciencemarks,int socialmarks,int total,double average){
+	  public Studentaccedamicdetails(int id,int student_id,int exam_id,int tamil_marks,int english_marks,int maths_marks,int science_marks,int social_marks,int total,double average){
 		  
 		  this.id=id;
-		  this.student_id=student_id;
 		  this.exam_id=exam_id;
-		  this.tamilmarks=tamilmarks;
-		  this.englishmarks=englishmarks;
+		  this.student_id=student_id;
+		  this.tamil_marks=tamil_marks;
+		  this.english_marks=english_marks;
+		  this.maths_marks=maths_marks;
+		  this.science_marks=science_marks;
+		  this.social_marks=social_marks;
 		  this.average=average;
-		  this.mathsmarks=mathsmarks;
-		  this.sciencemarks=sciencemarks;
-		  this.socialmarks=socialmarks;
 		  this.total=total;
+		
 		  
 	  }
+	  public int getExam_id() {
+			return exam_id;
+		}
+
+
+		public void setExam_id(int exam_id) {
+			this.exam_id = exam_id;
+		}
+		
+	public int getStudent_id() {
+		return student_id;
+	}
+
+
+	public void setStudent_id(int student_id) {
+		this.student_id = student_id;
+	}
 	  
 	  public int getId() {
 		return id;
@@ -93,63 +129,57 @@ public class Studentaccedamicdetails {
 	public void setAverage(double d) {
 		this.average = d;
 	}
+	 public int getTamil_marks() {
+			return tamil_marks;
+		}
 
-	  public int getStudent_id() 
-	  {
-		  return student_id; 
-	  }
-	  public void setStudent_id(int student_id) 
-	  {
-		  this.student_id = student_id;
-	  }
-	  public int getExam_id()
-	  {
-		  return exam_id;
-	  } 
-	  public void setExam_id(int exam_id)
-	  {
-		  this.exam_id = exam_id;
-	  } 
-	  public int getTamilmarks()
-	  { 
-		  return tamilmarks;
+
+		public void setTamil_marks(int tamil_marks) {
+			this.tamil_marks = tamil_marks;
+		}
+
+
+		public int getEnglish_marks() {
+			return english_marks;
+		}
+
+
+		public void setEnglish_marks(int english_marks) {
+			this.english_marks = english_marks;
+		}
+
+
+		public int getMaths_marks() {
+			return maths_marks;
+		}
+
+
+		public void setMaths_marks(int maths_marks) {
+			this.maths_marks = maths_marks;
+		}
+
+
+		public int getScience_marks() {
+			return science_marks;
+		}
+
+
+		public void setScience_marks(int science_marks) {
+			this.science_marks = science_marks;
+		}
+
+
+		public int getSocial_marks() {
+			return social_marks;
+		}
+
+
+		public void setSocial_marks(int social_marks) {
+			this.social_marks = social_marks;
+		}
+
+
 	  
-	  }
-	  public void setTamilmarks(int tamilmarks) 
-	  {
-		  this.tamilmarks = tamilmarks;
-	  }
-	  public int getEnglishmarks() 
-	  {
-		  return englishmarks; 
-	  }
-	  public void setEnglishmarks(int englishmarks) 
-	  { 
-		  this.englishmarks = englishmarks;
-	  }
-	  public int getMathsmarks() 
-	  {
-		  return mathsmarks; 
-	  }
-	  public void setMathsmarks(int mathsmarks) 
-	  {
-		  this.mathsmarks = mathsmarks;
-	  }
-	  public int getSciencemarks() 
-	  {
-		  return sciencemarks; 
-	  } 
-	  public void setSciencemarks(int sciencemarks) 
-	  {
-		  this.sciencemarks = sciencemarks; 
-	  }
-	  public int getSocialmarks() 
-	  {
-		  return socialmarks;
-	  } 
-	  public void setSocialmarks(int socialmarks)
-	  {
-		  this.socialmarks = socialmarks;
-	  }
+	 
 	 
 }

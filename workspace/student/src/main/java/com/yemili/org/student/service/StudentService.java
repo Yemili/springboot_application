@@ -1,7 +1,5 @@
 package com.yemili.org.student.service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.ListCrudRepository;
 
 import java.util.*;
 import org.springframework.stereotype.Service;
@@ -31,7 +29,6 @@ public class StudentService {
 	@Autowired
 	private ExamtypeRepository examtypeRepository;
 
-	//private Integer nextId = 1;
 	
 	//get all students
 	public List<Student> getAllStudents() {
@@ -74,18 +71,37 @@ public class StudentService {
 	}
 	//adding accedamic details
 	public Studentaccedamicdetails addAcademicDetails(Studentaccedamicdetails academicDetails) {
-		// TODO Auto-generated method stub
+		//Optional<Student> studentOpt = studentRepository.findById(studentId);
+        
+        System.out.println("student id:"+academicDetails.getId());
+        System.out.println("student exam id:"+academicDetails.getExam_id());
+        System.out.println("student tamil marks:"+academicDetails.getTamil_marks());
+        System.out.println("student english marks:"+academicDetails.getEnglish_marks());
+        System.out.println("student maths marks:"+academicDetails.getMaths_marks());
+        System.out.println("student science marks:"+academicDetails.getScience_marks());
+        System.out.println("student social:"+academicDetails.getSocial_marks());
+        System.out.println("student total:"+calculateTotalAndAverage(academicDetails).getTotal());
+        System.out.println("student average:"+calculateTotalAndAverage(academicDetails).getAverage());
+        System.out.println("student id from student:"+academicDetails.getStudent_id());
+        
+        
+		//System.out.println(calculateTotalAndAverage(academicDetails));
 		return studentaccedamicRepository.save(academicDetails);
-	}
+        }
+		//else {
+        //    throw new IllegalArgumentException("Invalid student ID"); // Handle case where student is not found
+      //  }
+	//}
 	
-	private void calculateTotalAndAverage(Studentaccedamicdetails academicDetails) {
-        int total = academicDetails.getTamilmarks() +
-                    academicDetails.getEnglishmarks() +
-                    academicDetails.getMathsmarks() +
-                    academicDetails.getSciencemarks() +
-                    academicDetails.getSocialmarks();
+	private Studentaccedamicdetails calculateTotalAndAverage(Studentaccedamicdetails academicDetails) {
+        int total = academicDetails.getTamil_marks() +
+                    academicDetails.getEnglish_marks() +
+                    academicDetails.getMaths_marks() +
+                    academicDetails.getScience_marks() +
+                    academicDetails.getSocial_marks();
         academicDetails.setTotal(total);
         academicDetails.setAverage(total / 5.0); // Assuming 5 subjects
+		return academicDetails;
     }
 	 // Get all exam types
 	public List<Examtype> getAllExamTypes() {
@@ -106,7 +122,7 @@ public class StudentService {
 	public Examtype updateExamType(Long id, Examtype updatedExamType) {
 		Examtype existingExamType = getExamTypeById(id);
         if (existingExamType != null) {
-            existingExamType.setName(updatedExamType.getName());
+            existingExamType.setExam_name(updatedExamType.getExam_name());
             existingExamType.setDate(updatedExamType.getDate());
             return examtypeRepository.save(existingExamType);
         }

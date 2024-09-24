@@ -3,13 +3,11 @@ package com.yemili.org.student.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -30,36 +28,19 @@ public class StudentController {
 
 	@Autowired
 	private StudentService studentservice;
-	private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
 
 	public StudentController(StudentService studentservice) {
 		this.studentservice = studentservice;
 	}
 	
-	@GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("message", "Welcome to the Student Portal");
-        return "index"; // Returns the name of the Thymeleaf template
-    }
 	
 	  @GetMapping("/show") 
 	  public List<Student> getStudent() 
 	  {
+		  System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 		  return studentservice.getAllStudents();
 	  }
 	 
-	
-	/*
-	 * @GetMapping("/") public String index(Model model) {
-	 * model.addAttribute("students", studentservice.getAllStudents()); return
-	 * "index"; // This will render index.html }
-	 */
-	/*
-	 * @PostMapping("/students") public String addStudent(@ModelAttribute Student
-	 * student) { studentservice.addStudent(student); return "redirect:/"; //
-	 * Redirect to the home page }
-	 */
-	
 	
 	  @GetMapping("/{id}")
 	  public Optional<Student> getStudentById(@PathVariable Long id)
@@ -98,7 +79,9 @@ public class StudentController {
 	    }
 	  	// Add academic details
 	    @PostMapping("/academic-details")
-	    public Studentaccedamicdetails addAcademicDetails(@RequestBody Studentaccedamicdetails academicDetails) {
+	    public Studentaccedamicdetails addAcademicDetails(@RequestBody Studentaccedamicdetails academicDetails)
+	    {
+	 
 	        return studentservice.addAcademicDetails(academicDetails);
 	    }
 	  

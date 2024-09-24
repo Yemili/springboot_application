@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Details</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <td th:text="${student.name}"></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td th:text="${student.gender}"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td th:text="${student.email}"></td>
+            </tr>
+            <tr>
+                <th>Mobile Number</th>
+                <td th:text="${student.mobilenumber}"></td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td th:text="${student.age}"></td>
+            </tr>
+        </table>
+        <a href="/students/show">Back to Student List</a> <!-- Link to student list if needed -->
+    </div>
+</body>
+</html>
