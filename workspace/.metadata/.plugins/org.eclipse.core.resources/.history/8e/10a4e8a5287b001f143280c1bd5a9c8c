@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Registration form</title>
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        .navbar {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">registration</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center">REGISTER</h2>
+        <div class="form-container">
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="name">NAME</label>
+                    <input type="text" class="form-control" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="gender">GENDER</label>
+                <select id="gender" name="gender" required placeholder="Select gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" class="form-control" id="email" required placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="mobilenumber">MOBILENUMBER</label>
+                    <input type="mobilenumber" class="form-control" id="mobilenumber"  required placeholder="Enter mobile number>
+                </div>
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" class="form-control" id="password" required placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label for="age">AGE</label>
+                    <input type="age" class="form-control" id="age" required>
+                </div>
+                <a href="/ticketbooking/src/main/resources/index1.html" id="search-link" class="btn btn-danger btn-block">Register</a>
+            </form>
+        </div>
+    </div>
+
+    <!--/* <script>
+        document.getElementById('search-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const departureDate = document.getElementById('departure-date').value;
+            const returnDate = document.getElementById('return-date').value;
+
+
+            const url = list.html?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&departureDate=${encodeURIComponent(departureDate)}&returnDate=${encodeURIComponent(returnDate)};
+
+
+            window.location.href = url;
+        });
+    </script>
+ */-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>   

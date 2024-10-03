@@ -24,6 +24,12 @@ public class Student {
 	@Column(name = "name")
 	private String name;
 
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", mobilenumber=" + mobilenumber + ", email=" + email + ", password="
+				+ password + ", age=" + age + ", gender=" + gender + "]";
+	}
+
 	@Column(name = "mobilenumber")
 	private String mobilenumber;
 	

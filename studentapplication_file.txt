@@ -23,3 +23,10 @@ exam_type
 	exam_name
 	date
 	
+	
+	
+	
+	student submit the  registration form it opens new browser for registration successful and student details.
+
+pream sir questions
+eclipse springboot application expecting maven install after every change

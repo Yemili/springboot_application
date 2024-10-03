@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration form</title>
+</head>
+<body>
+    <h1>WELCOME TO THE STUDENT PORTEL</h1>
+    <div class="dropdown">
+   		 <a href=" ">Visit student portel</a>
+  
+  	<div class="dropdown-content">
+   		 <a href="#">Registration</a>
+    	 <!-- <a href="#">Link 2</a>
+    	 <a href="#">Link 3</a> -->
+  </div>
+</div>
+    
+   
+</body>
+</html>
