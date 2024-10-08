@@ -1,0 +1,40 @@
+console.log("Script is running");
+console.log(document.getElementById('LoginForm')); // Check if it logs null or the form element
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('LoginForm');
+    
+    // Check if the form element is found
+    if (form) {
+    
+    form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+// Get user details
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    const errorMessage = document.getElementById('errorMessage');
+    const displayArea = document.getElementById('displayArea');
+
+    errorMessage.textContent = ''; // Clear previous error messages
+    displayArea.innerHTML = ''; // Clear previous display
+
+    // Basic validation
+    if (username === '' || password === '') {
+        errorMessage.textContent = 'Both fields are required.';
+        return;
+    }
+
+    // If validation passes, display the submitted values
+    displayArea.innerHTML = `
+        <h2>Login Successful</h2>
+        <p><strong>Username:</strong> ${username}</p>
+        <p><strong>Password:</strong> ${password}</p>
+        <p><strong>Password is not displayed for security reasons.</strong></p>
+    `;
+     });
+    } else {
+        console.error('Login form not found');
+    }
+});

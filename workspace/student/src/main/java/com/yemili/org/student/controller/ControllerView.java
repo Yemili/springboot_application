@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,10 +31,26 @@ public class ControllerView {
 
     @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
-    	 System.out.println("****************************************************8");
+    	 //System.out.println("****************************************************8");
         model.addAttribute("student", new Student());
        
-        return "registration"; // Returns the Thymeleaf template name
+        return "registrationform"; // Returns the Thymeleaf template name
+    }
+    @PostMapping("/registration")
+    public String addRegistrationForm(@ModelAttribute Student student)
+    {
+    	studentservice.addStudent(student);
+    	return "registrationform";
+    	
+    }
+    
+    
+    @GetMapping("/login")
+    public String showLoginForm(Model model) {
+    	 //System.out.println("****************************************************8");
+        model.addAttribute("student", new Student());
+       
+        return "login"; // Returns the Thymeleaf template name
     }
 
     @GetMapping("/register")
