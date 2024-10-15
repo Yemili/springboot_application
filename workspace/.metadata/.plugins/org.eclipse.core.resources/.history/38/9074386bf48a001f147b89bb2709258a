@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Academic Results</title>
+</head>
+<body>
+    <h1>Academic Results for <span th:text="${name}"></span> (Exam: <span th:text="${examType}"></span>)</h1>
+
+    <div th:if="${not #lists.isEmpty(academicResults)}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tamil</td>
+                    <td th:text="${academicResults[0].tamilMarks}"></td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td th:text="${academicResults[0].englishMarks}"></td>
+                </tr>
+                <tr>
+                    <td>Maths</td>
+                    <td th:text="${academicResults[0].mathsMarks}"></td>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td th:text="${academicResults[0].scienceMarks}"></td>
+                </tr>
+                <tr>
+                    <td>Social</td>
+                    <td th:text="${academicResults[0].socialMarks}"></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td th:text="${academicResults[0].total}"></td>
+                </tr>
+                <tr>
+                    <td>Average</td>
+                    <td th:text="${academicResults[0].average}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:if="${#lists.isEmpty(academicResults)}">
+        <p>No results found for the selected exam type.</p>
+    </div>
+</body>
+</html>

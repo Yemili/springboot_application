@@ -1,0 +1,36 @@
+package com.yemili.org.student;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+            .antMatchers("/", "/index", "/css/**", "/js/**") // Allow access to index and static resources
+            .permitAll()
+            .anyRequest()
+            .authenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login") // Define your custom login page
+            .permitAll();
+    }
+}
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+          return new BCryptPasswordEncoder();
+      }
+}
+
+
+

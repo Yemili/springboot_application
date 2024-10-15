@@ -1,0 +1,5 @@
+package com.yemili.org.student;
+
+public class SecurityConfig {
+
+}

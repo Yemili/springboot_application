@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/css/registrationstyles.css"> -->
+</head>
+
+<body>
+<div class="container">
+    <h1  th:text="'Details of, ' + ${name} + '!'" >Student Details</h1>
+    <div th:if="${student != null}">
+    <p>Name: <span th:text="${student.name}"></span></p>
+        <p>Email: <span th:text="${student.email}"></span></p>
+        <p>Gender: <span th:text="${student.gender}"></span></p>
+        <p>MobileNumber: <span th:text="${student.mobilenumber}"></span></p>
+        <p>Age: <span th:text="${student.age}"></span></p>
+    
+    <!-- <h1 th:text="${student.name}">Student Name</h1> -->
+</div>
+<div th:if="${student == null}">
+    <p>No student found.</p>
+</div>
+    
+    
+    
+    <!-- <div>
+        
+        
+    </div> -->
+    <a href="/">Back</a>
+</div>
+</body>
+</html>

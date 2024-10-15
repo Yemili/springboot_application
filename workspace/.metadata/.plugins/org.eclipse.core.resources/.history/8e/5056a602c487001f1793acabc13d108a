@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome page</title>
+    <style>
+    	button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    
+    </style>
+</head>
+
+<body>
+<div>
+
+ <h1 th:text="'Welcome, ' + ${name} + '!'">Welcome, User!</h1>
+    <a href="/logout">Logout</a>
+    <div class="button-container">
+    	<button type="button">view Details</button>
+    	<button type="button">View Accedamic Details</button>
+	</div>
+</div>
+</body>
+</html>

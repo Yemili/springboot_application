@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 import org.springframework.stereotype.Service;
 
+import com.yemili.org.student.controller.AcademicDetail;
 import com.yemili.org.student.model.Examtype;
 import com.yemili.org.student.model.Student;
 import com.yemili.org.student.model.Studentaccedamicdetails;
@@ -133,6 +134,30 @@ public class StudentService {
 		// TODO Auto-generated method stub
 		examtypeRepository.deleteById(id);
 	}
+	
+	
+	private List<Studentaccedamicdetails> fetchAcademicDetails(String name, String examType) {
+		
+		// Step 1: Retrieve the user by their name
+	    Optional<Student> student = studentRepository.findByname(name);
+	    if (student.isPresent()) {
+	        Integer userId = student.get().getId(); // Now you can call getId()
+	    } else {
+	        throw new IllegalArgumentException("User not found with name: " + name);
+	    }
+	    
+	    // Step 2: Fetch academic details based on the user's ID and the selected exam type
+	    List<Studentaccedamicdetails> academicDetails = studentaccedamicRepository.findByUserIdAndExamType(userId, examType);
+	    
+	    // Check if there are academic details for the selected exam type
+	    if (academicDetails.isEmpty()) {
+	        throw new IllegalArgumentException("No academic details found for exam type: " + examType);
+	    }
+	    
+	    return academicDetails; // Return the retrieved academic details
+
+	}
+	
 	
 }
         

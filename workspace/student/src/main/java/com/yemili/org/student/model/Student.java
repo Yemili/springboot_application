@@ -1,15 +1,15 @@
 package com.yemili.org.student.model;
 
 
-import java.util.List;
 
-import jakarta.persistence.CascadeType;
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,11 +24,7 @@ public class Student {
 	@Column(name = "name")
 	private String name;
 
-	@Override
-	public String toString() {
-		return "Student [name=" + name + ", mobilenumber=" + mobilenumber + ", email=" + email + ", password="
-				+ password + ", age=" + age + ", gender=" + gender + "]";
-	}
+	
 
 	@Column(name = "mobilenumber")
 	private String mobilenumber;
@@ -46,19 +42,7 @@ public class Student {
 	 * @OneToMany(mappedBy = "student", cascade = CascadeType.ALL) private
 	 * List<Studentaccedamicdetails> academicDetails;
 	 */
-	public Student() {
-	}
-
-	public Student(Integer id, String name, String gender, String password, String mobilenumber, String email,Integer age) {
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.gender = gender;
-		this.mobilenumber = mobilenumber;
-		this.password = password;
-		this.age = age;
-	}
-
+	
 	/*
 	 * public Student(Integer id, String name, String email) { this.id = id;
 	 * this.name = name; this.email = email; }
@@ -121,6 +105,25 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Student() {
+	}
+
+	public Student(Integer id, String name, String gender, String password, String mobilenumber, String email,Integer age) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.gender = gender;
+		this.mobilenumber = mobilenumber;
+		this.password = password;
+		this.age = age;
+	}
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", mobilenumber=" + mobilenumber + ", email=" + email + ", password="
+				+ password + ", age=" + age + ", gender=" + gender + "]";
+	}
+
 
 	// public Integer getAge() { return age; }
 	// public void setAge(Integer age) { this.age = age; }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Details</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/css/registrationstyles.css"> -->
+</head>
+
+<body>
+
+<div class="button-container">
+        <label for="examType">Select Exam Type:</label>
+        <select name="examType" id="examType">
+            <option value="">--Select Exam--</option>
+            <option value="unittest1">Unit Test 1</option>
+            <option value="unittest2">Unit Test 2</option>
+            <option value="quarterly">Quarterly</option>
+            <option value="halfyearly">Half-Yearly</option>
+            <option value="annuvel">Annuval</option>
+            <!-- Add more exam types as needed -->
+        </select>
+        
+    </div>
+
+
+
+
+</body>
+</html>
