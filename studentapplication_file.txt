@@ -24,9 +24,411 @@ exam_type
 	date
 	
 	
+	here new table
+	
+	Table name::examtype_marks
+	id unique autoincrement
+	student_id foreign key
+	tamil_marks
+	english_marks
+	maths_marks
+	science_marks
+	social_marks
+	total
+	average
+	examtype_name
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	student submit the  registration form it opens new browser for registration successful and student details.
 
 pream sir questions
 eclipse springboot application expecting maven install after every change
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q) when didnot Fetch user details from the database it gives the error like this
+
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "student.name" (template: "detailsPage" - line 36, col 10)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'name' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:417) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	... 75 common frames omitted
+
+2024-10-19T16:17:14.887+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Error rendering view [org.thymeleaf.spring6.view.ThymeleafView@78ca4586]
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "URL [classpath:/templates/detailsPage.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "student.name" (template: "detailsPage" - line 36, col 10)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "student.name" (template: "detailsPage" - line 36, col 10)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'name' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:417) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	... 75 common frames omitted
+
+2024-10-19T16:17:14.891+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-10-19T16:17:14.892+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "URL [classpath:/templates/detailsPage.html]")
+2024-10-19T16:17:14.892+05:30 ERROR 7780 --- [student] [nio-8081-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "URL [classpath:/templates/detailsPage.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'name' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:225) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:112) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorValueRef.getValue(PropertyOrFieldReference.java:417) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:97) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338) ~[spring-expression-6.1.12.jar:6.1.12]
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1432) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.12.jar:6.1.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.28.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.12.jar:6.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:904) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
+
+2024-10-19T16:17:14.895+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error?name=Raju", parameters={masked}
+2024-10-19T16:17:14.897+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2024-10-19T16:17:14.897+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-10-19T16:17:14.922+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2024-10-19T16:17:14.937+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2024-10-19T16:17:14.938+05:30 DEBUG 7780 --- [student] [nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+
+
+
+
+
+
+
+
+
+
+1. Use Session Attributes:
+You can store the logged-in student information in the session after a successful login. This way, you don't need to check the database again when showing the welcome page.
+
+Example Implementation:
+java
+Copy code
+@PostMapping("/loginForm")
+public String loginForm(String name, String password, Model model, HttpSession session) {
+    Optional<Student> student = studentRepository.findByname(name);
+    if (student.isPresent() && student.get().getPassword().equals(password)) {
+        session.setAttribute("student", student.get());
+        return "redirect:/view/welcome";        
+    } else {
+        model.addAttribute("error", "Invalid name or password");
+        return "index";
+    }
+}
+
+@GetMapping("/welcome")
+public String showWelcome(Model model, HttpSession session) {
+    Student student = (Student) session.getAttribute("student");
+    if (student != null) {
+        model.addAttribute("name", student.getName());
+        return "welcomepage";
+    } else {
+        model.addAttribute("error", "Please log in first.");
+        return "index"; // Redirect to login if not logged in
+    }
+}
+2. Session Management:
+Make sure to manage session attributes carefully. If the user logs out or the session expires, you should remove the student attribute.
+
+Logout Example:
+java
+Copy code
+@GetMapping("/logout")
+public String logout(HttpSession session) {
+    session.invalidate(); // Invalidates the session
+    return "index"; // Redirect to the login page
+}
+Advantages of This Approach:
+Avoids Redundant Database Queries: By storing the student in the session, you don't need to query the database every time the welcome page is accessed.
+Improved Performance: Fewer database calls can improve the performance of your application.
+Simplified Code: The logic becomes cleaner and easier to read.
+Conclusion:
+While checking for a student’s existence is crucial, using session management can reduce redundancy and enhance the user experience. Just ensure to handle session states properly to avoid potential security issues.
+
+
+
+
+
+Yes, you can optimize the viewDetails method by leveraging session attributes instead of checking the database for the student's details each time. If the student is already logged in and their information is stored in the session, you can retrieve it directly from there, eliminating the need for a database query.
+
+Here's how you can modify your viewDetails method:
+
+Updated Implementation
+java
+Copy code
+@GetMapping("/viewDetails")
+public String viewDetails(HttpSession session, Model model) {
+    // Retrieve the student from the session
+    Student student = (Student) session.getAttribute("student");
+    
+    if (student != null) {
+        // If the student is present in the session, add to the model
+        model.addAttribute("student", student);
+    } else {
+        // If no student is found in the session, set an error message
+        model.addAttribute("error", "Invalid name or not logged in.");
+    }
+    
+    // Thymeleaf template for displaying details
+    return "detailsPage";
+}
+Advantages of This Approach
+No Database Query: This method avoids unnecessary database calls if the student is already logged in, which improves performance.
+
+Simplified Logic: Your method becomes cleaner since it relies on the session to retrieve user details.
+
+Consistent User Experience: Users will have access to their information as long as their session is active, without needing to log in again for every detail view.
+
+Session Management Reminder
+Make sure you manage session attributes properly:
+
+Store the student information in the session upon successful login.
+Clear the session when the user logs out.
+This way, you maintain both security and efficiency in your application.
+
+
+
+SESSION TABLE DESCRIPTION::::
+
+Certainly! Here’s a description of each column in the SPRING_SESSION table you provided:
+
+Table: SPRING_SESSION
+PRIMARY_ID VARCHAR(36) NOT NULL
+
+Description: This column serves as a unique identifier for each session. It is typically a UUID (Universally Unique Identifier) represented as a string. It may be used internally by Spring Session to manage session data.
+SESSION_ID VARCHAR(36) NOT NULL
+
+Description: This column holds the unique session ID assigned to a specific user session. This ID is generated when a session is created and is used to track the session throughout its lifecycle. It is also usually a UUID.
+SESSION_DATA BLOB NOT NULL
+
+Description: This column stores the serialized data of the session. It contains all attributes associated with the session, allowing the application to restore the session state when a user reconnects. The data is stored as a binary large object (BLOB), enabling the storage of large amounts of data.
+CREATION_TIME BIGINT NOT NULL
+
+Description: This column records the timestamp (in milliseconds since epoch) when the session was created. It helps in managing session expiration and tracking how long a session has been active.
+LAST_ACCESS_TIME BIGINT NOT NULL
+
+Description: This column captures the last time (in milliseconds since epoch) the session was accessed. It is useful for determining session inactivity and implementing session expiration policies.
+MAX_INACTIVE_INTERVAL INT NOT NULL
+
+Description: This column defines the maximum period (in seconds) of inactivity before the session is invalidated. If a user does not interact with the session for this duration, the session will expire.
+EXPIRY_TIME BIGINT NOT NULL
+
+Description: This column holds the timestamp (in milliseconds since epoch) indicating when the session is set to expire. It is calculated based on the session's creation time and the maximum inactive interval. Once the current time exceeds this value, the session is considered expired.
+CONSTRAINT SESSION_UN UNIQUE (SESSION_ID)
+
+Description: This constraint ensures that the SESSION_ID is unique across the table, preventing multiple sessions from having the same ID. This is crucial for maintaining the integrity of session management.
+Summary
+The SPRING_SESSION table is designed to store session data in a relational database, enabling persistent session management across application restarts or in a distributed environment. Each column plays a specific role in tracking and managing user sessions effectively. If you have any further questions or need clarification on specific parts, feel free to ask!
+
+
+

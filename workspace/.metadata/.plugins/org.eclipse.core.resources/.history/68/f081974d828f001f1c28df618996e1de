@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Profile</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit Profile</h1>
+    <form th:action="@{/view/editProfile}" method="post" th:object="${student}">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" pattern="[A-Za-z]{3}" title="Characters only" th:field="*{name}" required />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required />
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" th:field="*{gender}">
+                <option value="Male" th:selected="${student.gender == 'Male'}">Male</option>
+                <option value="Female" th:selected="${student.gender == 'Female'}">Female</option>
+                <option value="Other" th:selected="${student.gender == 'Other'}">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="mobilenumber">Mobile Number:</label>
+            <input type="text" id="mobilenumber" th:field="*{mobilenumber}" required />
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" th:field="*{age}" required />
+        </div>
+        <div>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+    <a href="/profile">Cancel</a>
+</div>
+</body>
+</html>

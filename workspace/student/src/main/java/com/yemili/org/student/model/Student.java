@@ -4,6 +4,8 @@ package com.yemili.org.student.model;
 
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,8 +16,10 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "student_details")
-public class Student {
+public class Student implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -35,8 +39,8 @@ public class Student {
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "age")
-	private int age;
+	@Column(name = "date_of_birth")
+	private int date_of_birth;
 
 	/*
 	 * @OneToMany(mappedBy = "student", cascade = CascadeType.ALL) private
@@ -48,13 +52,19 @@ public class Student {
 	 * this.name = name; this.email = email; }
 	 */
 
-	public Integer getAge() {
-		return age;
+	public int getDate_of_birth() {
+		return date_of_birth;
 	}
 
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setDate_of_birth(int date_of_birth) {
+		this.date_of_birth = date_of_birth;
 	}
+
+	/*
+	 * public Integer getAge() { return age; }
+	 * 
+	 * public void setAge(Integer age) { this.age = age; }
+	 */
 
 	private String gender;
 
@@ -109,19 +119,23 @@ public class Student {
 	public Student() {
 	}
 
-	public Student(Integer id, String name, String gender, String password, String mobilenumber, String email,Integer age) {
+	public Student(Integer id, String name, String gender, String password, String mobilenumber, String email,Integer date_of_birth) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.gender = gender;
 		this.mobilenumber = mobilenumber;
 		this.password = password;
-		this.age = age;
+		this.date_of_birth = date_of_birth;
 	}
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", mobilenumber=" + mobilenumber + ", email=" + email + ", password="
-				+ password + ", age=" + age + ", gender=" + gender + "]";
+				+ password + ", age=" + date_of_birth + ", gender=" + gender + "]";
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 

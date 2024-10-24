@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-//@EnableWebSecurity
+
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
@@ -15,10 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/static/");
     }
 
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//          return new BCryptPasswordEncoder();
-//      }
+
 }
 
 

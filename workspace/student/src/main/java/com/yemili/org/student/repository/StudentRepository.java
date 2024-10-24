@@ -11,7 +11,8 @@ import com.yemili.org.student.model.Student;
 public interface StudentRepository extends JpaRepository<Student,Long> {
 
 	Optional<Student> findByname(String name); 
-	
+	//Student findByname(String name); 
+	//void updateStudent(Student student);
 
 	
 }

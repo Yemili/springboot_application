@@ -5,23 +5,26 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.yemili.org.student.model.ExamTypeMarks;
 import com.yemili.org.student.model.Examtype;
 import com.yemili.org.student.model.Student;
 import com.yemili.org.student.model.Studentaccedamicdetails;
 import com.yemili.org.student.repository.StudentRepository;
 import com.yemili.org.student.service.StudentService;
 
+import jakarta.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/view")
 public class ControllerView {
@@ -31,9 +34,7 @@ public class ControllerView {
 
 	@Autowired
 	private StudentRepository studentRepository;
-
 	
-//	@Autowired private BCryptPasswordEncoder passwordEncoder;
 	 
 	public ControllerView(StudentService studentservice) {
 		this.studentservice = studentservice;
@@ -61,35 +62,55 @@ public class ControllerView {
 		  return "index"; 
 		  }// Returns the Thymeleaf template name } }
 		 
-
-
+	
 	@PostMapping("/loginForm")
-	public String loginForm(String name, String password, Model model) {
-		Optional<Student> students = studentRepository.findByname(name);
-		 if (students.isPresent()) {
-			System.out.println(students.get()); 
-			model.addAttribute("student", students.get());
-			return "redirect:/view/welcome?name=" + name;		
-					
-		}
-		 else{model.addAttribute("error", "Invalid name or password");
-		return "index";}
+	public String loginForm(String name, String password, Model model, HttpSession session) {
+	    Optional<Student> students = studentRepository.findByname(name);
 
+	    if (students.isPresent() && students.get().getPassword().equals(password)) {
+	        Student student = students.get(); 
+	        session.setAttribute("student", student); 
+
+	        return "redirect:/view/welcome?name=" + name; 
+	    } else {
+	        model.addAttribute("error", "Invalid name or password");
+	        return "index"; 
+	    }
 	}
+
 	
-	@GetMapping("/welcome")
-	public String showWlcome(@RequestParam String name,Model model) { 
-		 model.addAttribute("name", name);
-			
-		 Optional<Student> students = studentRepository.findByname(name);
-		 if(students.isPresent()) {
+	/*
+	 * @GetMapping("/welcome") public String showWlcome(@RequestParam String
+	 * name,Model model) { model.addAttribute("name", name); Optional<Student>
+	 * students = studentRepository.findByname(name); if(students.isPresent()) {
+	 * model.addAttribute("name", students.get().getName()); }
+	 * 
+	 * return "welcomepage";
+	 * 
+	 * }// Returns the Thymeleaf template name
+	 */	 	
+	
+	
+	
+	  @GetMapping("/welcome")
+	  public String welcome(HttpSession session, Model model) { 
 		  
-		  model.addAttribute("name", name); }
-			return "welcomepage";
-		 
-		  }// Returns the Thymeleaf template name
+		  Student student = (Student) session.getAttribute("student"); 
+		  if (student != null)
+		  { 
+			  model.addAttribute("name", student.getName()); 
+			  return "welcome";
+		  }
+		  return "redirect:/"; 
+		}
+	 
+	 
 	
-		 
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+	    session.invalidate(); // Invalidate the session
+	    return "redirect:/"; // Redirect to home page
+	}
 	
 
 	@GetMapping("/register")
@@ -102,25 +123,82 @@ public class ControllerView {
 	
 	@GetMapping("/viewDetails")
 	public String viewDetails(@RequestParam String name, Model model) {
-        // Fetch user details from the database
-		Optional<Student> students = studentRepository.findByname(name);
-		 if (students.isPresent()) {
-			System.out.println(students.get()); 
-			model.addAttribute("student", students.get());
-				
-					
-		}
+		 // Fetch user details from the database 
+		Optional<Student> students =studentRepository.findByname(name); if (students.isPresent()) {
+		  System.out.println(students.get()); model.addAttribute("student",
+		  students.get());
+		  
+		  
+		  } 
 		else{model.addAttribute("error", "Invalid name ");
-		
-		}
-		 // Thymeleaf template for displaying details
+		  
+		  } 
+		 
 		 return "detailsPage";	
 	}
 	
+	@GetMapping("/edit")
+    public String editProfileForm(Model model,@RequestParam String name) {
+		Optional<Student> students = studentRepository.findByname(name);
+		 if (students.isPresent()) {
+			 Student student=students.get();
+			 
+				 model.addAttribute("student", student);	
+				 
+				}
+		 else {
+		        
+		       System.out.println("student not found");
+		    }
+			
+	return "editProfile";
+	}
 
+	@PostMapping("/editProfile")
+    public String updateProfile(@ModelAttribute Student student) {
+        studentservice.updateStudent(student); // Update the student's data
+        return "redirect:/view/viewDetails"; // Redirect back to the profile page
+    }
 	
 	
+	
+	@GetMapping("/academicDetails")
+	public String viewAcademicDetails(@RequestParam String name, Model model) {
+        model.addAttribute("name", name);
+        return "academicDetailsPage"; // Thymeleaf template name for the academic details page
+    }
+	
+	
+	@GetMapping("/academicResults")
+	public String getMarks(@RequestParam String examTypeName, Model model,@RequestParam String name) {
+		Optional<Student> students = studentRepository.findByname(name);
+		//Student students = studentRepository.findByname(name);
+		 if (students.isPresent()) {
+			System.out.println(students.get()); 
+			model.addAttribute("student", students.get());		
 		
+		 //  get the logged-in student
+       
+			List<ExamTypeMarks> marks = studentservice.getMarksByExamType(students.get().getId(), examTypeName);
+			if (marks == null || marks.isEmpty()) {
+			    System.out.println("No marks found for student ID " + students.get().getId() + " and exam type " + examTypeName);
+			} else {
+			    System.out.println("Marks retrieved: " + marks);
+			}
+			//System.out.println(students.get().getId()+" "+examtype_name);
+			
+			
+			
+        model.addAttribute("marks", marks);
+        model.addAttribute("examtype_name", examTypeName);
+        return "academicResults"; // Thymeleaf template name
+    }
+	else{model.addAttribute("error", "Invalid name or password") ;
+	return "welcomepage";
+	}
+	}
+	
+	
 	
 
 	@GetMapping("/studentlist")
@@ -138,7 +216,7 @@ public class ControllerView {
 			System.out.println(student.get().getGender());
 			System.out.println(student.get().getMobilenumber());
 			System.out.println(student.get().getPassword());
-			System.out.println(student.get().getAge());
+			System.out.println(student.get().getDate_of_birth());
 
 			// Student student1 = student.get();
 			// System.out.println("Student Name: " + student1.getName());
@@ -165,5 +243,10 @@ public class ControllerView {
 		model.addAttribute("details", details);
 		return "studentaccdemicdetails";
 	}
-
+	/*
+	 * @GetMapping("/logout") public String logout(HttpServletRequest request) {
+	 * HttpSession session = request.getSession(false); // Get the current session
+	 * if (session != null) { session.invalidate(); // Invalidate the session }
+	 * return "redirect:/index"; // Redirect to the login page or home page }
+	 */
 }

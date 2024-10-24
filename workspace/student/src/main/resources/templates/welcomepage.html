@@ -60,17 +60,8 @@ input[type="submit"]:hover {
 }
 
 
-/* button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    flex: 1;
-    margin: 0 5px; /* Add some space between buttons */
-} */
+
+}
 
 button:hover {
     background-color: #0056b3;
@@ -87,11 +78,13 @@ button:focus {
 <div class="container">
 
  <h1 th:text="'Welcome, ' + ${name} + '!'">Welcome, User!</h1>
+ 
+ 
  <form  th:action="@{/view/viewDetails}" method="get">
-    <a href="/logout">Logout</a>
+    
     <input type="hidden" name="name" th:value="${name}" />
     <div class="button-container">
-    	<input type="submit" value="view Details"></input>
+    	<input type="submit" value="Profile"></input>
     	
 	</div>
 </form>
@@ -102,7 +95,7 @@ button:focus {
     	<input type="submit" value="View Academic Details" />
     </div>
 </form>
-
+<a href="/view/logout" method="post">Logout</a>
 
 
 </div>

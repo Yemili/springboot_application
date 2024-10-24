@@ -1,0 +1,34 @@
+package com.yemili.org.student;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .csrf().disable() // Disable CSRF for simplicity (consider enabling in production)
+            .authorizeRequests()
+                .requestMatchers("/login", "/register").permitAll() // Allow public access
+                .anyRequest().authenticated() // All other requests require authentication
+                .and()
+            .formLogin()
+                .loginPage("/login") // Custom login page URL
+                .permitAll() // Allow everyone to access the login page
+                .and()
+            .logout()
+                .logoutUrl("/logout") // URL to trigger logout
+                .logoutSuccessUrl("/login") // Redirect URL after successful logout
+                .invalidateHttpSession(true) // Invalidate the session
+                .deleteCookies("JSESSIONID"); // Optionally delete cookies
+    }
+} 
+
