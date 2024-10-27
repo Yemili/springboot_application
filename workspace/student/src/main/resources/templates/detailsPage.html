@@ -40,9 +40,10 @@ a:hover {
         <p>Email: <span th:text="${student.email}"></span></p>
         <p>Gender: <span th:text="${student.gender}"></span></p>
         <p>MobileNumber: <span th:text="${student.mobilenumber}"></span></p>
-        <p>DateOfBirth: <span th:text="${student.date_of_birth}"></span></p>
+        <p>Age: <span th:text="${student.age}"></span></p>
+        <p>DateofBirth:<span th:text="${student.date_of_birth}"></span></p>
     
-    	<a th:href="@{/view/edit(name=${student.name})}">Edit Profile</a>
+    	<a th:href="@{/view/edit(name=${student.name})}" method="get">Edit Profile</a>
 </div>
 <div th:if="${student == null}">
     <p>No student found.</p>

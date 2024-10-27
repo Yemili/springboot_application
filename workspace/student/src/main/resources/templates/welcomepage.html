@@ -77,12 +77,12 @@ button:focus {
 <body>
 <div class="container">
 
+<!--  <h1 th:text="'Welcome, ' + ${name} + '!'">Welcome, User!</h1> -->
+ 
  <h1 th:text="'Welcome, ' + ${name} + '!'">Welcome, User!</h1>
- 
- 
  <form  th:action="@{/view/viewDetails}" method="get">
     
-    <input type="hidden" name="name" th:value="${name}" />
+    <input type="hidden" name="name" th:value="${name}" /> 
     <div class="button-container">
     	<input type="submit" value="Profile"></input>
     	
@@ -90,7 +90,7 @@ button:focus {
 </form>
 
 <form th:action="@{/view/academicDetails}" method="get">
-    <input type="hidden" name="name" th:value="${name}" />
+  <input type="hidden" name="name" th:value="${name}" /> 
     <div class="button-container">
     	<input type="submit" value="View Academic Details" />
     </div>

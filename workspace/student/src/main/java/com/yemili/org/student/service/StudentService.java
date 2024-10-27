@@ -5,8 +5,8 @@ import java.util.*;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.yemili.org.student.model.Examtype;
 import com.yemili.org.student.model.ExamTypeMarks;
+import com.yemili.org.student.model.Examtype;
 import com.yemili.org.student.model.Student;
 import com.yemili.org.student.model.Studentaccedamicdetails;
 import com.yemili.org.student.repository.ExamtypeMarksRepository;
@@ -14,7 +14,18 @@ import com.yemili.org.student.repository.ExamtypeRepository;
 import com.yemili.org.student.repository.StudentRepository;
 import com.yemili.org.student.repository.StudentaccedamicdetailsRepository;
 
+/*import com.yemili.org.student.model.Examtype;
+import com.yemili.org.student.model.ExamTypeMarks;
+import com.yemili.org.student.model.Student;
+import com.yemili.org.student.model.Studentaccedamicdetails;
+import com.yemili.org.student.repository.ExamtypeMarksRepository;
+import com.yemili.org.student.repository.ExamtypeRepository;
+import com.yemili.org.student.repository.StudentRepository;
+import com.yemili.org.student.repository.StudentaccedamicdetailsRepository;
+*/
 import java.lang.String;
+import java.time.LocalDate;
+import java.time.Period;
 @Service
 public class StudentService {
 	
@@ -70,11 +81,28 @@ public class StudentService {
         }
         return Optional.empty();
 	}  
+	
       
 	public void updateStudent(Student student) {
-       
-        studentRepository.save(student); // This saves the updated student data
+		
+		if (student.getDate_of_birth() != null) {
+	        student.setAge(calculateAge(student.getDate_of_birth()));
+	    } else {
+	        System.out.println("Date of birth is null for student: " + student);
+	    }
+		
+		 //student.setAge(calculateAge(student.getDate_of_birth()));
+		 System.out.println("student values to be updated:"+student);
+        studentRepository.save(student);
     }
+	public int calculateAge(LocalDate date_of_birth) {
+	    if (date_of_birth == null) {
+	        return 0; 
+	    }
+	    int age = Period.between(date_of_birth, LocalDate.now()).getYears();
+	    System.out.println("Calculated age: " + age + " for date of birth: " + date_of_birth);
+	    return age;
+	}
     
 	//getting all accedamic details
 	public List<Studentaccedamicdetails> getAllAcademicDetails() {
@@ -100,10 +128,7 @@ public class StudentService {
 		//System.out.println(calculateTotalAndAverage(academicDetails));
 		return studentaccedamicRepository.save(academicDetails);
         }
-		//else {
-        //    throw new IllegalArgumentException("Invalid student ID"); // Handle case where student is not found
-      //  }
-	//}
+		
 	
 	private Studentaccedamicdetails calculateTotalAndAverage(Studentaccedamicdetails academicDetails) {
         int total = academicDetails.getTamil_marks() +

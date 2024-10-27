@@ -5,6 +5,7 @@ package com.yemili.org.student.model;
 
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,31 +41,17 @@ public class Student implements Serializable {
 	private String password;
 	
 	@Column(name = "date_of_birth")
-	private int date_of_birth;
-
-	/*
-	 * @OneToMany(mappedBy = "student", cascade = CascadeType.ALL) private
-	 * List<Studentaccedamicdetails> academicDetails;
-	 */
+	private LocalDate date_of_birth;
+	
+	@Column(name = "age")
+	private int age;
 	
 	/*
-	 * public Student(Integer id, String name, String email) { this.id = id;
-	 * this.name = name; this.email = email; }
+	 * public void setDate_of_birth(LocalDate date_of_birth) { this.date_of_birth =
+	 * date_of_birth; }
 	 */
 
-	public int getDate_of_birth() {
-		return date_of_birth;
-	}
-
-	public void setDate_of_birth(int date_of_birth) {
-		this.date_of_birth = date_of_birth;
-	}
-
-	/*
-	 * public Integer getAge() { return age; }
-	 * 
-	 * public void setAge(Integer age) { this.age = age; }
-	 */
+	
 
 	private String gender;
 
@@ -119,7 +106,7 @@ public class Student implements Serializable {
 	public Student() {
 	}
 
-	public Student(Integer id, String name, String gender, String password, String mobilenumber, String email,Integer date_of_birth) {
+	public Student(Integer id, String name, String gender, String password, String mobilenumber, String email,LocalDate date_of_birth,int age) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -127,11 +114,29 @@ public class Student implements Serializable {
 		this.mobilenumber = mobilenumber;
 		this.password = password;
 		this.date_of_birth = date_of_birth;
+		this.age=age;
+		
 	}
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", mobilenumber=" + mobilenumber + ", email=" + email + ", password="
-				+ password + ", age=" + date_of_birth + ", gender=" + gender + "]";
+				+ password + ", age=" + age + ", gender=" + gender + "]";
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public LocalDate getDate_of_birth() {
+		return date_of_birth;
+	}
+
+	public void setDate_of_birth(LocalDate date_of_birth) {
+		this.date_of_birth = date_of_birth;
 	}
 
 	public static long getSerialversionuid() {
@@ -139,7 +144,5 @@ public class Student implements Serializable {
 	}
 
 
-	// public Integer getAge() { return age; }
-	// public void setAge(Integer age) { this.age = age; }
-
+	
 }
